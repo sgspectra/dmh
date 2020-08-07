@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "dnd"
+    }
+  },
+  "defaultProject": "dnd",
+  "cli": {
+    "analytics": "ecd45462-21d9-4485-b76c-968b5277312c"
+  }
 }
