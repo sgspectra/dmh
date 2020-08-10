@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { FormControl } from '@angular/forms';
+import { User } from '../user';
+import { Router } from '@angular/router';
 
 
 export interface NewUser {
@@ -18,7 +19,7 @@ export interface NewUser {
   styleUrls: ['./register-user.component.scss']
 })
 export class RegisterUserComponent implements OnInit {
-  user: NewUser = {
+  user: User = {
     username: '',
     firstName: '',
     lastName: '',
@@ -26,7 +27,20 @@ export class RegisterUserComponent implements OnInit {
     dob: '',
     password: ''
   };
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
+  createUser(): void {
+    this.userService.registerUser(this.user).subscribe( user => {
+      // Clear the form
+      this.user.username = '';
+      this.user.firstName = '';
+      this.user.lastName = '';
+      this.user.email = '';
+      this.user.dob = '';
+      this.user.password = '';
+      // Redirect to page that shows users (promise not ignored)
+      this.router.navigate(['/users']).then();
+    });
+  }
   ngOnInit(): void {
   }
 }
