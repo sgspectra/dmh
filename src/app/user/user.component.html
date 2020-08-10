@@ -1,2 +1,6 @@
-<p>{{ user.username }}</p>
+<h3>Registered Users:</h3>
 
+<ul>
+  <li>Username, First Name, Last Name</li>
+  <li *ngFor="let u of users">{{u.id}},{{u.username}},{{u.firstName}},{{u.lastName}}</li>
+</ul>
