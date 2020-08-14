@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterUserComponent } from './register-user/register-user.component';
 import {FormsModule} from '@angular/forms';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { CharacterComponent } from './character/character.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     DashboardComponent,
     UserComponent,
     RegisterUserComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    CharacterComponent
   ],
   imports: [
     BrowserModule,
