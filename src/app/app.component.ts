@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthenticationService } from './authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,14 @@ import { AuthenticationService } from './authentication.service';
 })
 export class AppComponent {
   title = 'Dungeon Master Helper';
-  constructor(private authenticationService: AuthenticationService) { }
-  loggedInUser = this.authenticationService.currentUser.subscribe((user) => { console.log(user)});
+  username: string;
+  loggedInUser = this.authenticationService.currentUser.subscribe((user) => {
+    console.log(user);
+    this.username = user.username;
+  });
+  logout(): void {
+    this.authenticationService.logout();
+    window.location.href = '/dashboard';
+  }
+  constructor(private authenticationService: AuthenticationService, private router: Router) { }
 }

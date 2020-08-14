@@ -38,7 +38,7 @@ export class RegisterUserComponent implements OnInit {
       this.user.dob = '';
       this.user.password = '';
       // Redirect to page that shows users (promise not ignored)
-      this.router.navigate(['/users']).then();
+      this.router.navigate(['/dashboard']).then();
     });
   }
   ngOnInit(): void {
