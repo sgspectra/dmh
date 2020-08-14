@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,10 +10,10 @@ import { Router } from '@angular/router';
 export class AuthenticationComponent implements OnInit {
   username: string;
   password: string;
-  constructor(private authenticationService: AuthenticationService, private router: Router) { }
+  constructor(private authenticationService: AuthenticationService) { }
   login(): void {
     this.authenticationService.login(this.username, this.password).subscribe(
-      (user) => {
+      () => {
         window.location.href = '/dashboard';
       },
       (error) => {
