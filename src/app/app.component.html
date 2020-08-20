@@ -11,6 +11,9 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/users">Users<span class="sr-only"></span></a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/characters">Characters<span class="sr-only"></span></a>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
       <li *ngIf="username == null" class="nav-item">
@@ -25,4 +28,6 @@
     </ul>
   </div>
 </nav>
-<router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
