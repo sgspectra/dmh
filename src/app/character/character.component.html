@@ -1,4 +1,5 @@
 <div class="container">
+  <button class="btn btn-lg btn-outline-dark" (click)="open(mymodal)">Add Character</button>
   <table class="table table-dark">
     <thead>
     <tr>
@@ -22,18 +23,95 @@
     </tbody>
   </table>
 </div>
-<button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>
+
 <ng-template #mymodal let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
+    <h4 class="modal-title" id="modal-basic-title">Create Character</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">×</span>
     </button>
   </div>
   <div class="modal-body">
-    This is example from ItSolutionStuff.com
+    <form>
+      <div class="form-group">
+        <label for="characterNameInput">Character Name</label>
+        <input [(ngModel)]="newCharacter.characterName" name="characterName" type="text" id="characterNameInput" class="form-control" placeholder="Character Name"/>
+      </div>
+      <div class="form-group">
+        <label for="playerNameInput">Player Name</label>
+        <input [(ngModel)]="newCharacter.playerName" type="text" id="playerNameInput" name="playerName" class="form-control" placeholder="Player Name"/>
+      </div>
+      <div class="form-group">
+        <label for="characterClassInput">Class</label>
+        <input [(ngModel)]="newCharacter.characterClass" type="text" id="characterClassInput" name="characterClass" class="form-control" placeholder="Character Class"/>
+      </div>
+      <div class="form-group">
+        <label for="characterAlignmentInput">Alignment</label>
+        <input [(ngModel)]="newCharacter.alignment" type="text" id="characterAlignmentInput" name="alignment" class="form-control" placeholder="Alignment"/>
+      </div>
+      <div class="form-group">
+        <label for="characterRaceInput">Character Race</label>
+        <input [(ngModel)]="newCharacter.characterRace" type="text" id="characterRaceInput" name="characterRace" class="form-control" placeholder="Character Race"/>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="characterLevelInput">Level</label>
+            <input [(ngModel)]="newCharacter.level" type="number" id="characterLevelInput" name="level" class="form-control" placeholder=0/>
+          </div>
+          <div class="col">
+            <label for="characterExpInput">Experience</label>
+            <input [(ngModel)]="newCharacter.experience" type="number" id="characterExpInput" name="experience" class="form-control" placeholder=0/>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="attrStrengthInput">Strength</label>
+            <input [(ngModel)]="newCharacter.strength" type="number" id="attrStrengthInput" name="strength" class="form-control" placeholder=0/>
+          </div>
+          <div class="col">
+            <label for="attrDexterityInput">Dexterity</label>
+            <input [(ngModel)]="newCharacter.dexterity" type="number" id="attrDexterityInput" name="dexterity" class="form-control" placeholder=0/>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="attrConstitutionInput">Constitution</label>
+            <input [(ngModel)]="newCharacter.constitution" type="number" id="attrConstitutionInput" name="constitution" class="form-control" placeholder=0/>
+          </div>
+          <div class="col">
+            <label for="attrIntelligenceInput">Intelligence</label>
+            <input [(ngModel)]="newCharacter.intelligence" type="number" id="attrIntelligenceInput" name="intelligence" class="form-control" placeholder=0/>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="attrWisdomInput">Wisdom</label>
+            <input [(ngModel)]="newCharacter.wisdom" type="number" id="attrWisdomInput" name="wisdom" class="form-control" placeholder=0/>
+          </div>
+          <div class="col">
+            <label for="attrCharismaInput">Charisma</label>
+            <input [(ngModel)]="newCharacter.charisma" type="number" id="attrCharismaInput" name="charisma" class="form-control" placeholder=0/>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col">
+            <label for="armorClassInput">Armor Class</label>
+            <input [(ngModel)]="newCharacter.armorClass" type="number" id="armorClassInput" name="armorClass" class="form-control" placeholder=0/>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    <button type="button" class="btn btn-outline-dark" (click)="saveCharacter(); modal.close('Save click')">Ok</button>
   </div>
 </ng-template>

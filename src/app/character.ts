@@ -9,12 +9,12 @@ export interface Character {
   experience: number;
   createdAt?: string;
   updatedAt?: string;
-  userId: number;
-  strength: number;
-  dexterity: number;
-  constitution: number;
-  intelligence: number;
-  wisdom: number;
-  charisma: number;
-  armorClass: number;
+  userId?: number;
+  strength?: number;
+  dexterity?: number;
+  constitution?: number;
+  intelligence?: number;
+  wisdom?: number;
+  charisma?: number;
+  armorClass?: number;
 }

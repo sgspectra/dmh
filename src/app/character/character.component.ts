@@ -15,6 +15,16 @@ export class CharacterComponent implements OnInit {
   closeResult: string;
   characters: Character[];
   userId: number;
+  newCharacter: Character = {
+    characterName: '',
+    playerName: '',
+    characterRace: '',
+    characterClass: '',
+    alignment: '',
+    level: 0,
+    experience: 0,
+    userId: null
+  };
   constructor(private characterService: CharacterService, private authenticationService: AuthenticationService,
               private modalService: NgbModal) { }
 
@@ -22,6 +32,7 @@ export class CharacterComponent implements OnInit {
     if (localStorage.getItem('isLoggedIn') === 'true'){
       this.authenticationService.currentUser.subscribe((user) => {
         this.userId = user.id;
+        this.newCharacter.userId = user.id;
       });
       this.getUserCharacters();
     }
@@ -46,5 +57,8 @@ export class CharacterComponent implements OnInit {
     } else {
       return `with: ${reason}`;
     }
+  }
+  saveCharacter(): void {
+    this.characterService.saveCharacter(this.newCharacter).subscribe();
   }
 }
